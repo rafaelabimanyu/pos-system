@@ -15,24 +15,24 @@
         <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-all relative overflow-hidden group">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-slate-500 dark:text-slate-400 font-medium">Daily Sales</h3>
-                <div class="p-2.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl group-hover:scale-110 transition-transform">
+                <div class="p-2.5 bg-brand/10 dark:bg-blue-900/30 text-brand dark:text-brand-hover rounded-xl group-hover:scale-110 transition-transform">
                     <i data-lucide="trending-up" class="w-5 h-5"></i>
                 </div>
             </div>
             <p class="text-3xl font-bold text-slate-900 dark:text-white">Rp {{ number_format($dailySales, 0, ',', '.') }}</p>
-            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 dark:from-blue-600 dark:to-blue-800"></div>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-brand-hover to-brand dark:from-brand dark:to-brand-dark"></div>
         </div>
 
         <!-- Total Orders -->
         <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-all relative overflow-hidden group">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-slate-500 dark:text-slate-400 font-medium">Total Orders</h3>
-                <div class="p-2.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl group-hover:scale-110 transition-transform">
+                <div class="p-2.5 bg-brand/10 dark:bg-blue-900/30 text-brand dark:text-brand-hover rounded-xl group-hover:scale-110 transition-transform">
                     <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                 </div>
             </div>
             <p class="text-3xl font-bold text-slate-900 dark:text-white">{{ $totalOrders }}</p>
-            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 dark:from-blue-600 dark:to-blue-800"></div>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-brand-hover to-brand dark:from-brand dark:to-brand-dark"></div>
         </div>
 
         <!-- Low Stock Alerts -->

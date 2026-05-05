@@ -1,18 +1,13 @@
 @import "tailwindcss";
 
+/* Aktivasi class .dark secara manual untuk Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   
-  /* Override Default Blue to Custom Sky Blue (#82C8E5) */
-  --color-blue-50: #f0f9fd;
-  --color-blue-100: #e0f2fa;
-  --color-blue-200: #bae4f5;
-  --color-blue-300: #82c8e5; /* The brand color */
-  --color-blue-400: #5db6de;
-  --color-blue-500: #3b9ac3;
-  --color-blue-600: #2b7a9f;
-  --color-blue-700: #236280;
-  --color-blue-800: #1f526b;
-  --color-blue-900: #1d455a;
-  --color-blue-950: #132d3d;
+  /* Variabel Warna Brand Khusus */
+  --color-brand: #82C8E5;
+  --color-brand-hover: #67B6D7;
+  --color-brand-dark: #1E3A8A; /* Warna kontras untuk mode gelap jika dibutuhkan */
 }

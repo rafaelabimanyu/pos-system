@@ -19,11 +19,11 @@
                 
                 <!-- Category Badges -->
                 <div class="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto scrollbar-hide">
-                    <button @click="setCategory(null)" :class="selectedCategory === null ? 'bg-blue-600 text-white border-transparent' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'" class="px-4 py-2 text-sm font-medium rounded-lg border whitespace-nowrap shadow-sm transition-colors duration-300">
+                    <button @click="setCategory(null)" :class="selectedCategory === null ? 'bg-brand text-slate-900 border-transparent font-bold' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'" class="px-4 py-2 text-sm font-medium rounded-lg border whitespace-nowrap shadow-sm transition-colors duration-300">
                         All Items
                     </button>
                     @foreach($categories as $category)
-                    <button @click="setCategory({{ $category->id }})" :class="selectedCategory === {{ $category->id }} ? 'bg-blue-600 text-white border-transparent' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'" class="px-4 py-2 text-sm font-medium rounded-lg border whitespace-nowrap shadow-sm transition-colors duration-300">
+                    <button @click="setCategory({{ $category->id }})" :class="selectedCategory === {{ $category->id }} ? 'bg-brand text-slate-900 border-transparent font-bold' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'" class="px-4 py-2 text-sm font-medium rounded-lg border whitespace-nowrap shadow-sm transition-colors duration-300">
                         {{ $category->name }}
                     </button>
                     @endforeach
