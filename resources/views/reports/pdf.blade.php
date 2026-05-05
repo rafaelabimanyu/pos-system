@@ -31,7 +31,7 @@
 </head>
 <body>
     <div class="header">
-        <h2>{{ $globalSettings['app_name'] ?? 'POS Carolina' }}</h2>
+        <h2>{{ $globalSettings['app_name'] ?? 'POS Rico' }}</h2>
         <h3>Transactions Report</h3>
         <p>Generated on: {{ \Carbon\Carbon::now()->format('d M Y, H:i') }}</p>
     </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - POS Carolina</title>
+    <title>Login - POS Rico</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -19,7 +19,7 @@
             <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-500 mb-4 shadow-sm">
                 <i data-lucide="store" class="w-8 h-8"></i>
             </div>
-            <h1 class="text-2xl font-bold text-gray-900">POS Carolina</h1>
+            <h1 class="text-2xl font-bold text-gray-900">POS Rico</h1>
             <p class="text-sm text-gray-500 mt-1">Sign in to your account</p>
         </div>
 
@@ -65,7 +65,7 @@
         </div>
 
         <div class="mt-6 text-center text-xs text-gray-400">
-            &copy; {{ date('Y') }} POS Carolina. All rights reserved.
+            &copy; {{ date('Y') }} POS Rico. All rights reserved.
         </div>
     </div>
 

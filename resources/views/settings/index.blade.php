@@ -27,7 +27,7 @@
                         
                         <div class="mb-4">
                             <label for="app_name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Application Name</label>
-                            <input type="text" name="app_name" id="app_name" value="{{ old('app_name', $settings['app_name'] ?? 'POS Carolina') }}" 
+                            <input type="text" name="app_name" id="app_name" value="{{ old('app_name', $settings['app_name'] ?? 'POS Rico') }}" 
                                 class="block w-full rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-4 py-3 border transition duration-300 ease-in-out">
                         </div>
 

@@ -1,58 +1,102 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛒 POS Rico
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20.svg?logo=laravel)
+![Tailwind](https://img.shields.io/badge/TailwindCSS-v4-06B6D4.svg?logo=tailwindcss)
+![AlpineJS](https://img.shields.io/badge/Alpine.js-8BC0D0.svg?logo=alpine.js&logoColor=white)
 
-## About Laravel
+**POS Rico** is a modern, high-performance Point of Sale (POS) application built with Laravel and Tailwind CSS v4. Designed for speed and aesthetics, POS Rico features a beautiful, responsive Sky Blue (#82C8E5) theme, a functional dark mode, and a robust role-based access control system.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Developed as a professional business solution for managing sales, inventory, and analytics smoothly on both desktop and mobile devices.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ✨ Key Features
 
-## Learning Laravel
+- **Modern UI/UX**: Premium interface heavily utilizing glassmorphism, soft shadows, and clean typography (*Plus Jakarta Sans*).
+- **Brand Identity**: Consistent *Sky Blue* theme (`#82C8E5`) across the entire platform.
+- **Dark Mode**: Fully functional, persistent Dark Mode using modern CSS variables and `localStorage`.
+- **Responsive Mobile-First Design**: 
+  - Dynamic off-canvas *Sidebar Drawer* for mobile users.
+  - Responsive *Product Grid* mapping from 2 columns on mobile up to 5 on large desktops.
+  - Interactive *Mobile Cart Modal* vs *Sticky Desktop Cart*.
+- **Role-Based Access Control (RBAC)**: Secure access handling distinguishing **Admin** (full access) and **Cashier** (restricted access to sales tools and personal stats only).
+- **Interactive POS Interface**: Lightning-fast, reload-free product filtering and cart calculation powered by **Alpine.js**.
+- **Reporting & Analytics**: Comprehensive dashboard statistics and exportable PDF transaction reports.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠️ Technology Stack
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+- **Backend**: Laravel 11/13, PHP 8.2+
+- **Frontend**: Blade Components, Tailwind CSS v4, Alpine.js
+- **Database**: SQLite / MySQL
+- **Icons**: Lucide Icons
+- **Bundler**: Vite
 
-## Agentic Development
+---
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## 🚀 Installation & Setup
 
+Follow these steps to get POS Rico up and running on your local environment (e.g., Laragon / XAMPP):
+
+### 1. Clone & Install Dependencies
+First, install the PHP and Node.js dependencies:
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+composer install
+npm install
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Environment Setup
+Copy the `.env.example` file to create your `.env` configuration:
+```bash
+cp .env.example .env
+```
+Make sure `APP_NAME` is set to `POS_Rico`, and configure your database settings (SQLite is configured by default).
 
-## Contributing
+Generate the application key:
+```bash
+php artisan key:generate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Database Migration & Seeding
+Run the migrations and seed the database with initial data (Products, Categories, and Default Users):
+```bash
+php artisan migrate:fresh --seed
+```
+*Note: This will generate default Admin and Cashier accounts.*
 
-## Code of Conduct
+### 4. Build Assets
+Compile the Tailwind CSS v4 utilities and JavaScript assets:
+```bash
+npm run build
+```
+*(For development, run `npm run dev` to enable Vite's Hot Module Replacement)*
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 5. Start Server
+Finally, start the local development server:
+```bash
+php artisan serve
+```
+Access the application at `http://localhost:8000`.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🔐 Default Credentials
 
-## License
+After running the database seeders, you can log in using:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+| Role | Email | Password |
+|---|---|---|
+| **Admin** | `admin@pos.com` | `password` |
+| **Cashier** | `cashier@pos.com` | `password` |
+
+---
+
+## 👨‍💻 Author
+
+**Rafael Abimanyu**  
+*Lead Developer & UI/UX Architect*
+
+---
+*© {{ date('Y') }} POS Rico. All rights reserved.*

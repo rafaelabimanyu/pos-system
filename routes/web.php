@@ -11,10 +11,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SettingsController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    if (auth()->check()) {
-        return auth()->user()->role === 'admin' ? redirect('/dashboard') : redirect('/pos');
+    if (Auth::check()) {
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+        return $user->role === 'admin' ? redirect('/dashboard') : redirect('/pos');
     }
     return redirect('/login');
 });
@@ -24,8 +27,6 @@ Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('aut
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
     Route::resource('inventory/products', ProductController::class);
     
     // Redirect /inventory to /inventory/products
@@ -44,6 +45,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'role:admin,cashier'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/pos', [PosController::class, 'index'])->name('pos.index');
     Route::post('/pos/checkout', [PosController::class, 'checkout'])->name('pos.checkout');
 });

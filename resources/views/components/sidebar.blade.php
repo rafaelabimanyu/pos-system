@@ -7,7 +7,7 @@
             @else
                 <i data-lucide="store" class="w-6 h-6"></i>
             @endif
-            <span class="font-bold text-xl tracking-tight">{{ $globalSettings['app_name'] ?? 'POS Carolina' }}</span>
+            <span class="font-bold text-xl tracking-tight">{{ $globalSettings['app_name'] ?? 'POS Rico' }}</span>
         </div>
         <!-- Mobile Close Button -->
         <button @click="sidebarOpen = false" class="md:hidden text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 focus:outline-none">
