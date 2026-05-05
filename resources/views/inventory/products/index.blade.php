@@ -6,7 +6,8 @@
             <h1 class="text-2xl font-bold text-slate-900">Products Inventory</h1>
             <p class="text-slate-500 mt-1">Manage your products and stock levels.</p>
         </div>
-        <a href="{{ route('products.create') }}" class="inline-flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors shadow-sm font-medium">
+        <a href="{{ route('products.create') }}"
+            class="inline-flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors shadow-sm font-medium">
             <i data-lucide="plus" class="w-4 h-4"></i>
             Add Product
         </a>
@@ -38,12 +39,13 @@
                                 <div class="font-medium text-slate-900">{{ $product->name }}</div>
                             </td>
                             <td class="px-6 py-4">
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700">
                                     {{ $product->category->name ?? 'None' }}
                                 </span>
                             </td>
                             <td class="px-6 py-4">
-                                ${{ number_format($product->price, 2) }}
+                                {{ $product->formatted_price }}
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-2">
@@ -59,13 +61,17 @@
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <div class="flex items-center justify-end gap-2">
-                                    <a href="{{ route('products.edit', $product) }}" class="p-2 text-slate-400 hover:text-blue-500 rounded-lg hover:bg-blue-50 transition-colors">
+                                    <a href="{{ route('products.edit', $product) }}"
+                                        class="p-2 text-slate-400 hover:text-blue-500 rounded-lg hover:bg-blue-50 transition-colors">
                                         <i data-lucide="edit" class="w-4 h-4"></i>
                                     </a>
-                                    <form action="{{ route('products.destroy', $product) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                    <form action="{{ route('products.destroy', $product) }}" method="POST"
+                                        class="inline-block"
+                                        onsubmit="return confirm('Are you sure you want to delete this product?');">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="p-2 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50 transition-colors">
+                                        <button type="submit"
+                                            class="p-2 text-slate-400 hover:text-red-500 rounded-lg hover:bg-red-50 transition-colors">
                                             <i data-lucide="trash-2" class="w-4 h-4"></i>
                                         </button>
                                     </form>

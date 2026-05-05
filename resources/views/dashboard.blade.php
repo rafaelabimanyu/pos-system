@@ -110,7 +110,7 @@
                                         label += ': ';
                                     }
                                     if (context.parsed.y !== null) {
-                                        label += new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(context.parsed.y);
+                                        label += 'Rp ' + new Intl.NumberFormat('id-ID').format(context.parsed.y);
                                     }
                                     return label;
                                 }

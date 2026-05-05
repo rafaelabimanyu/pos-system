@@ -197,7 +197,7 @@
                 },
 
                 formatMoney(amount) {
-                    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(amount);
+                    return 'Rp ' + new Intl.NumberFormat('id-ID').format(amount);
                 },
 
                 async checkout() {
