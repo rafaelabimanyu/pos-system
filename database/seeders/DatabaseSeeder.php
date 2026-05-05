@@ -49,5 +49,43 @@ class DatabaseSeeder extends Seeder
         foreach ($products as $product) {
             \App\Models\Product::create($product);
         }
+
+        // Generate 50 historical transactions
+        $cashier = User::query()->where('role', 'cashier')->first();
+        $methods = ['cash', 'qris', 'card'];
+        
+        $dbProducts = \App\Models\Product::query()->get();
+
+        for ($i = 0; $i < 50; $i++) {
+            $date = \Carbon\Carbon::now()->subDays(rand(0, 30))->subHours(rand(0, 23))->subMinutes(rand(0, 59));
+            
+            $transaction = \App\Models\Transaction::create([
+                'user_id' => $cashier->id,
+                'total_amount' => 0, // will calculate
+                'payment_method' => $methods[array_rand($methods)],
+                'status' => 'completed',
+                'created_at' => $date,
+                'updated_at' => $date,
+            ]);
+
+            $numItems = rand(1, 4);
+            $totalAmount = 0;
+            $selectedProducts = $dbProducts->random($numItems);
+
+            foreach ($selectedProducts as $prod) {
+                $qty = rand(1, 3);
+                $subtotal = $prod->price * $qty;
+                $totalAmount += $subtotal;
+
+                \App\Models\TransactionDetail::create([
+                    'transaction_id' => $transaction->id,
+                    'product_id' => $prod->id,
+                    'quantity' => $qty,
+                    'subtotal' => $subtotal,
+                ]);
+            }
+
+            $transaction->update(['total_amount' => $totalAmount]);
+        }
     }
 }

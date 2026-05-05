@@ -12,48 +12,47 @@
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         
-        <!-- Daily Sales -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden group">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-all relative overflow-hidden group">
             <div class="flex items-center justify-between mb-4">
-                <h3 class="text-slate-500 font-medium">Daily Sales</h3>
-                <div class="p-2.5 bg-blue-50 text-blue-600 rounded-xl group-hover:scale-110 transition-transform">
+                <h3 class="text-slate-500 dark:text-slate-400 font-medium">Daily Sales</h3>
+                <div class="p-2.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl group-hover:scale-110 transition-transform">
                     <i data-lucide="trending-up" class="w-5 h-5"></i>
                 </div>
             </div>
-            <p class="text-3xl font-bold text-slate-900">Rp {{ number_format($dailySales, 0, ',', '.') }}</p>
-            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+            <p class="text-3xl font-bold text-slate-900 dark:text-white">Rp {{ number_format($dailySales, 0, ',', '.') }}</p>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 dark:from-blue-600 dark:to-blue-800"></div>
         </div>
 
         <!-- Total Orders -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden group">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-all relative overflow-hidden group">
             <div class="flex items-center justify-between mb-4">
-                <h3 class="text-slate-500 font-medium">Total Orders</h3>
-                <div class="p-2.5 bg-blue-50 text-blue-600 rounded-xl group-hover:scale-110 transition-transform">
+                <h3 class="text-slate-500 dark:text-slate-400 font-medium">Total Orders</h3>
+                <div class="p-2.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-xl group-hover:scale-110 transition-transform">
                     <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                 </div>
             </div>
-            <p class="text-3xl font-bold text-slate-900">{{ $totalOrders }}</p>
-            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+            <p class="text-3xl font-bold text-slate-900 dark:text-white">{{ $totalOrders }}</p>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 dark:from-blue-600 dark:to-blue-800"></div>
         </div>
 
         <!-- Low Stock Alerts -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden group">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-all relative overflow-hidden group">
             <div class="flex items-center justify-between mb-4">
-                <h3 class="text-slate-500 font-medium">Low Stock Items</h3>
-                <div class="p-2.5 bg-red-50 text-red-600 rounded-xl group-hover:scale-110 transition-transform">
+                <h3 class="text-slate-500 dark:text-slate-400 font-medium">Low Stock Items</h3>
+                <div class="p-2.5 bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-xl group-hover:scale-110 transition-transform">
                     <i data-lucide="alert-triangle" class="w-5 h-5"></i>
                 </div>
             </div>
-            <p class="text-3xl font-bold text-slate-900">{{ $lowStockCount }}</p>
-            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-red-600"></div>
+            <p class="text-3xl font-bold text-slate-900 dark:text-white">{{ $lowStockCount }}</p>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-red-600 dark:from-red-600 dark:to-red-800"></div>
         </div>
 
     </div>
 
     <!-- Chart Section -->
-    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 p-6 transition-colors duration-300">
         <div class="flex items-center justify-between mb-6">
-            <h2 class="text-lg font-bold text-slate-900">Sales Trends (Last 7 Days)</h2>
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white">Sales Trends (Last 7 Days)</h2>
         </div>
         <div class="relative h-72 w-full">
             <canvas id="salesChart"></canvas>

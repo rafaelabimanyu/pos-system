@@ -1,9 +1,13 @@
 <aside class="w-64 bg-white border-r border-slate-200 flex flex-col hidden md:flex z-10 transition-all duration-300">
     <!-- Logo Area -->
     <div class="h-16 flex items-center px-6 border-b border-slate-100">
-        <div class="flex items-center gap-2 text-primary-600">
-            <i data-lucide="store" class="w-6 h-6"></i>
-            <span class="font-bold text-xl tracking-tight">POS Carolina</span>
+        <div class="flex items-center gap-2 text-blue-600 dark:text-blue-400 transition-colors duration-300">
+            @if(isset($globalSettings['app_logo']))
+                <img src="{{ \Illuminate\Support\Facades\Storage::url($globalSettings['app_logo']) }}" alt="Logo" class="h-6 object-contain">
+            @else
+                <i data-lucide="store" class="w-6 h-6"></i>
+            @endif
+            <span class="font-bold text-xl tracking-tight">{{ $globalSettings['app_name'] ?? 'POS Carolina' }}</span>
         </div>
     </div>
 
@@ -34,9 +38,14 @@
             Users
         </a>
         
-        <a href="{{ route('reports.index') }}" class="{{ request()->routeIs('reports.*') ? 'bg-blue-50 text-blue-600' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900' }} group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors">
-            <i data-lucide="bar-chart-3" class="{{ request()->routeIs('reports.*') ? 'text-blue-600' : 'text-slate-400 group-hover:text-slate-600' }} mr-3 flex-shrink-0 h-5 w-5"></i>
+        <a href="{{ route('reports.index') }}" class="{{ request()->routeIs('reports.*') ? 'bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-slate-200' }} group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors">
+            <i data-lucide="bar-chart-3" class="{{ request()->routeIs('reports.*') ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300' }} mr-3 flex-shrink-0 h-5 w-5"></i>
             Reports
+        </a>
+
+        <a href="{{ route('settings.index') }}" class="{{ request()->routeIs('settings.*') ? 'bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-slate-200' }} group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors">
+            <i data-lucide="settings" class="{{ request()->routeIs('settings.*') ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300' }} mr-3 flex-shrink-0 h-5 w-5"></i>
+            Settings
         </a>
         @endif
     </nav>

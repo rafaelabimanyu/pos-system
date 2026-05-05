@@ -1,15 +1,29 @@
 <x-app-layout>
     <x-slot name="title">Sales Reports</x-slot>
 
-    <div class="mb-6 flex items-center justify-between">
+    <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-            <h1 class="text-2xl font-bold text-slate-900">Sales Reports</h1>
-            <p class="text-slate-500 mt-1">Overview of your business performance.</p>
+            <h1 class="text-2xl font-bold text-slate-900 dark:text-white transition-colors duration-300">Sales Reports</h1>
+            <p class="text-slate-500 dark:text-slate-400 mt-1 transition-colors duration-300">Overview of your business performance.</p>
         </div>
-        <button onclick="window.print()" class="inline-flex items-center gap-2 bg-white text-slate-700 border border-slate-200 px-4 py-2 rounded-lg hover:bg-slate-50 transition-colors shadow-sm font-medium">
-            <i data-lucide="printer" class="w-4 h-4"></i>
-            Print / Export
-        </button>
+        <div class="flex items-center gap-3 flex-wrap">
+            <form action="{{ route('reports.index') }}" method="GET" class="flex items-center gap-2">
+                <select name="range" onchange="this.form.submit()" class="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-blue-500 focus:border-blue-500 transition-colors duration-300">
+                    <option value="all" {{ $range === 'all' ? 'selected' : '' }}>All Time</option>
+                    <option value="daily" {{ $range === 'daily' ? 'selected' : '' }}>Today</option>
+                    <option value="weekly" {{ $range === 'weekly' ? 'selected' : '' }}>This Week</option>
+                    <option value="monthly" {{ $range === 'monthly' ? 'selected' : '' }}>This Month</option>
+                </select>
+            </form>
+            <a href="{{ route('reports.export.pdf') }}" target="_blank" class="inline-flex items-center gap-2 bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400 px-4 py-2 rounded-lg hover:bg-red-100 dark:hover:bg-red-900/50 transition-colors shadow-sm font-medium text-sm">
+                <i data-lucide="file-text" class="w-4 h-4"></i>
+                PDF
+            </a>
+            <a href="{{ route('reports.export.excel') }}" class="inline-flex items-center gap-2 bg-green-50 text-green-600 dark:bg-green-900/30 dark:text-green-400 px-4 py-2 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/50 transition-colors shadow-sm font-medium text-sm">
+                <i data-lucide="sheet" class="w-4 h-4"></i>
+                Excel
+            </a>
+        </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
