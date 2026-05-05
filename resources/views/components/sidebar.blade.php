@@ -1,6 +1,6 @@
-<aside class="w-64 bg-white border-r border-slate-200 flex flex-col hidden md:flex z-10 transition-all duration-300">
-    <!-- Logo Area -->
-    <div class="h-16 flex items-center px-6 border-b border-slate-100">
+<aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'" class="w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col fixed inset-y-0 left-0 z-50 md:relative md:flex transition-transform duration-300 ease-in-out">
+    <!-- Logo Area & Mobile Close -->
+    <div class="h-16 flex items-center justify-between px-6 border-b border-slate-100 dark:border-slate-700">
         <div class="flex items-center gap-2 text-brand dark:text-brand-hover transition-colors duration-300">
             @if(isset($globalSettings['app_logo']))
                 <img src="{{ \Illuminate\Support\Facades\Storage::url($globalSettings['app_logo']) }}" alt="Logo" class="h-6 object-contain">
@@ -9,6 +9,10 @@
             @endif
             <span class="font-bold text-xl tracking-tight">{{ $globalSettings['app_name'] ?? 'POS Carolina' }}</span>
         </div>
+        <!-- Mobile Close Button -->
+        <button @click="sidebarOpen = false" class="md:hidden text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 focus:outline-none">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
     </div>
 
     <!-- Navigation -->

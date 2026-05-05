@@ -2,7 +2,7 @@
     
     <div class="flex items-center">
         <!-- Mobile menu button -->
-        <button type="button" class="md:hidden text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-1 mr-4">
+        <button @click="sidebarOpen = true" type="button" class="lg:hidden text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 focus:outline-none focus:ring-2 focus:ring-brand rounded-lg p-1 mr-4 transition-colors">
             <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
         

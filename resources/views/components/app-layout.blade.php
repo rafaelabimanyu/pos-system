@@ -28,8 +28,20 @@
         }
     </script>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans antialiased overflow-hidden h-screen flex transition-colors duration-300">
+<body x-data="{ sidebarOpen: false }" class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans antialiased overflow-hidden h-screen flex transition-colors duration-300">
     
+    <!-- Mobile Sidebar Backdrop -->
+    <div x-show="sidebarOpen" 
+         x-transition:enter="transition-opacity ease-linear duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity ease-linear duration-300"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         @click="sidebarOpen = false"
+         class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-40 lg:hidden"
+         style="display: none;"></div>
+
     <!-- Sidebar Component -->
     @include('components.sidebar')
 
