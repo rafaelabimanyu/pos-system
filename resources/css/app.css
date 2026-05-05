@@ -3,15 +3,16 @@
 @theme {
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   
-  --color-primary-50: var(--color-blue-50);
-  --color-primary-100: var(--color-blue-100);
-  --color-primary-200: var(--color-blue-200);
-  --color-primary-300: var(--color-blue-300);
-  --color-primary-400: var(--color-blue-400);
-  --color-primary-500: var(--color-blue-500);
-  --color-primary-600: var(--color-blue-600);
-  --color-primary-700: var(--color-blue-700);
-  --color-primary-800: var(--color-blue-800);
-  --color-primary-900: var(--color-blue-900);
-  --color-primary-950: var(--color-blue-950);
+  /* Override Default Blue to Custom Sky Blue (#82C8E5) */
+  --color-blue-50: #f0f9fd;
+  --color-blue-100: #e0f2fa;
+  --color-blue-200: #bae4f5;
+  --color-blue-300: #82c8e5; /* The brand color */
+  --color-blue-400: #5db6de;
+  --color-blue-500: #3b9ac3;
+  --color-blue-600: #2b7a9f;
+  --color-blue-700: #236280;
+  --color-blue-800: #1f526b;
+  --color-blue-900: #1d455a;
+  --color-blue-950: #132d3d;
 }
